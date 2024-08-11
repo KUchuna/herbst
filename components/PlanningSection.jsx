@@ -33,7 +33,7 @@ export default function PlanningSection() {
         animate(scope.current, { x: newPosition }, { type: "spring", stiffness: 22 });
     }
     
-
+//test
     return (
         <section className="flex w-full justify-center py-[96px] items-start p-large-x">
             <div className="max-w-large-width w-full flex flex-col justify-center items-start">
