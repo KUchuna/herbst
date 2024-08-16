@@ -16,6 +16,9 @@ module.exports = {
       },
       maxWidth: {
         "large-width": "1440px"
+      },
+      fontFamily: {
+        lato: ['Lato', 'sans-serif'],
       }
     },
   },
