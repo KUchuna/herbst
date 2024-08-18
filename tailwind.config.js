@@ -11,6 +11,10 @@ module.exports = {
         "primary-light": "#DD5502",
         "secondary-light": "#EDEDED",
       },
+      colors: {
+        "primary-light": "#DD5502",
+        "secondary-light": "#EDEDED",
+      },
       padding: {
         "large-x": "0 80px"
       },

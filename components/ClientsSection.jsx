@@ -9,7 +9,7 @@ export default function ClientsSection() {
                 <h1 className="text-5xl font-bold">
                     Unsere Auftraggeber sind
                 </h1>
-                <div className="pt-[48px] flex gap-[32px]">
+                <div className="pt-12 flex gap-[32px]">
                     <div>
                         <h3 className="border-l-[2px] border-[#DA4741] pl-[12px] font-bold text-3xl">Investoren</h3>
                         <p className="pt-[8px] pl-[12px] text-[#545454] text-xl font-lato">
