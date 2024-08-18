@@ -82,7 +82,7 @@ export default function ProjectsSlider() {
             </div>
             <div className="flex gap-3 mt-8 pl-20">
                 <motion.button 
-                    className={`rounded-full p-[12px] ${prevBtnDisabled ? "bg-[#efb797] pointer-events-none" : "bg-primary-light"}`} 
+                    className={`rounded-full select-none p-[12px] ${prevBtnDisabled ? "bg-[#efb797] pointer-events-none" : "bg-primary-light"}`} 
                     onClick={scrollPrev}
                     whileTap={{scale: 0.9}}
                     whileHover={{scale: 1.1}}
@@ -91,7 +91,7 @@ export default function ProjectsSlider() {
                         <Image src={arrowr} alt="back" className="rotate-[180deg]"/>
                 </motion.button>
                 <motion.button 
-                    className={`rounded-full p-[12px] ${nextBtnDisabled ? "bg-[#efb797] pointer-events-none" : "bg-primary-light"}`} 
+                    className={`rounded-full select-none p-[12px] ${nextBtnDisabled ? "bg-[#efb797] pointer-events-none" : "bg-primary-light"}`} 
                     onClick={scrollNext}
                     whileTap={{scale: 0.9}}
                     whileHover={{scale: 1.1}}
