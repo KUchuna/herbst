@@ -32,7 +32,8 @@ export default function PartnersSection() {
                 <div className="pt-12 flex justify-between w-full">
                     {
                         partners.map((partner) => (
-                            <PartnerCard 
+                            <PartnerCard
+                                key={partner.img}
                                 img={partner.img}
                             />
                         ))
