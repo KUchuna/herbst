@@ -21,7 +21,7 @@ export default function PlanningSection() {
     return (
         <section className="flex w-full justify-center py-24 items-start font-lora">
             <div className="max-w-large-width w-full flex flex-col justify-center items-start">
-                <h1 className="text-5xl font-bold w-[630px] mb-12 pl-20">
+                <h1 className="text-5xl font-bold max-w-[50%] mb-12 pl-20">
                     HLKS-Planungsburo im schonen Fricktal
                 </h1>
                 <div className="w-full h-[70vh] relative overflow-x-hidden font-lato" ref={emblaRef}>

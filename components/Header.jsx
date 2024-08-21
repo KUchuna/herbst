@@ -5,7 +5,7 @@ import HeaderButton from './HeaderButton'
 
 export default function Header() {
     return (
-        <header className='flex justify-center pt-[34px] font-lato'>
+        <header className='flex justify-center pt-8 font-lato sticky -top-5 z-30'>
             <div className='flex items-center bg-secondary-light rounded-[20px] py-[12px] px-[16px]'>
                 <Image src={headerlogo} alt='herbst' />
                 <ul className="flex gap-[24px] ml-[24px]">

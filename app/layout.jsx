@@ -1,6 +1,7 @@
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import Header from "@/components/Header";
+import ScrollTracker from "@/components/ScrollTracker";
 
 
 
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
     <html suppressHydrationWarning>
       <body>
         <ThemeProvider enableSystem={true}>
+          <ScrollTracker />
           <Header />
             {children}
         </ThemeProvider>
