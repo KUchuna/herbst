@@ -13,7 +13,7 @@ export default function PartnerCard({ img }) {
         <motion.div
             variants={childVariants}
             transition={{ duration: 0.5 }}
-            className="bg-secondary-light py-8 px-6 rounded-xl cursor-pointer flex items-center justify-center"
+            className="bg-secondary-light py-8 px-6 rounded-xl cursor-pointer flex items-center justify-center select-none"
         >
             <Image src={img} alt="partner logo" width={170} />
         </motion.div>

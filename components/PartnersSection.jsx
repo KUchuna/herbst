@@ -35,7 +35,8 @@ export default function PartnersSection() {
                     className="pt-12 flex justify-between w-full"
                     variants={containerVariants}
                     initial="hidden"
-                    animate="visible"
+                    whileInView="visible"
+                    viewport={{ once: false }}
                 >
                     {partners.map((partner, index) => (
                         <PartnerCard
