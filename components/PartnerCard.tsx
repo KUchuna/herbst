@@ -3,7 +3,11 @@
 import Image from "next/image"
 import { motion } from "framer-motion"
 
-export default function PartnerCard({ img }) {
+interface PartnerCardProps {
+    img: string;
+}
+
+export default function PartnerCard({img}: PartnerCardProps) {
     const childVariants = {
         hidden: { opacity: 0, translateY: -60 },
         visible: { opacity: 1, translateY: 0 },

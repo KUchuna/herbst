@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes'
 
 export default function ThemeChanger() {
     
-    const { theme, setTheme } = useTheme()
+    const { setTheme } = useTheme()
     const {resolvedTheme} = useTheme()
 
     function handleTheme() {

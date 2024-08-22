@@ -26,6 +26,8 @@ const containerVariants = {
     },
 }
 
+
+
 export default function PartnersSection() {
     return (
         <section className="flex w-full justify-center py-24 items-start font-lora">

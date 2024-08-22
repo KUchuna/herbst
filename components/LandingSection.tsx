@@ -1,4 +1,4 @@
-import LandingCard from "./LandingCard.jsx"
+import LandingCard from "./LandingCard.js"
 import landing1 from "@/public/assets/landing1.png"
 import landing2 from "@/public/assets/landing2.png"
 import landing3 from "@/public/assets/landing3.png"

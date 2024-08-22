@@ -1,7 +1,7 @@
 "use client"
 
 import useEmblaCarousel from "embla-carousel-react"
-import ProjectCard from "./ProjectCard.jsx"
+import ProjectCard from "./ProjectCard.js"
 import project1 from "@/public/assets/projects1.png"
 import project2 from "@/public/assets/projects2.png"
 import project3 from "@/public/assets/projects3.png"
