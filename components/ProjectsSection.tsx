@@ -1,4 +1,4 @@
-import ProjectsSlider from "./ProjectsSlider.jsx"
+import ProjectsSlider from "./ProjectsSlider.tsx"
 
 export default function ProjectsSection() {
     return (

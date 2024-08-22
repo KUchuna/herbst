@@ -1,7 +1,8 @@
 "use client"
 
 import useEmblaCarousel from "embla-carousel-react"
-import ProjectCard from "./ProjectCard.js"
+import { EmblaCarouselType } from "embla-carousel"
+import ProjectCard from "./ProjectCard.tsx"
 import project1 from "@/public/assets/projects1.png"
 import project2 from "@/public/assets/projects2.png"
 import project3 from "@/public/assets/projects3.png"
@@ -53,7 +54,7 @@ export default function ProjectsSlider() {
         if (emblaApi) emblaApi.scrollNext()
       }, [emblaApi])
 
-      const onSelect = useCallback((emblaApi) => {
+      const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
         setPrevBtnDisabled(!emblaApi.canScrollPrev())
         setNextBtnDisabled(!emblaApi.canScrollNext())
       }, [])
