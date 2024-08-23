@@ -8,7 +8,7 @@ import landing4 from "@/public/assets/landing4.png"
 export default function LandingSection() {
 
     return (
-        <section className="flex w-full justify-center pt-[50px] p-large-x font-lato">
+        <section className="flex w-full justify-center pt-11 p-large-x font-lato">
             <div className="max-w-large-width w-full flex flex-col justify-center items-center landing-bg pt-[115px]">
                 <ul className="flex gap-[16px] mb-[100px]">
                     <li className="flex justify-center items-center rounded-[8px] landing-button" id="landing-button-1">

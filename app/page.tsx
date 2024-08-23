@@ -1,5 +1,6 @@
 import ClientsSection from "@/components/ClientsSection";
 import LandingSection from "@/components/LandingSection";
+import NewsLetterSection from "@/components/NewsLetterSection";
 import PartnersSection from "@/components/PartnersSection";
 import PlanningSection from "@/components/PlanningSection";
 import ProjectsSection from "@/components/ProjectsSection";
@@ -14,6 +15,7 @@ export default function Home() {
       <ProjectsSection />
       <ReviewsSection />
       <PartnersSection />
+      <NewsLetterSection />
     </main>
   );
 }
