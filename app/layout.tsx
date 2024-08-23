@@ -1,6 +1,6 @@
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
-import Header from "@/components/Header";
+import Header from "@/components/header/Header";
 import ScrollTracker from "@/components/ScrollTracker";
 import { ReactNode } from "react";
 

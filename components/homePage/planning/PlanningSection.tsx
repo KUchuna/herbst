@@ -24,7 +24,7 @@ export default function PlanningSection() {
                 <h1 className="text-5xl font-bold max-w-[50%] mb-12 pl-20">
                     HLKS-Planungsburo im schonen Fricktal
                 </h1>
-                <div className="w-full h-[70vh] relative overflow-x-hidden font-lato" ref={emblaRef}>
+                <div className="w-full h-[60vh] 2xl:h-[70vh] relative overflow-x-hidden font-lato" ref={emblaRef}>
                     <div className="flex gap-5 h-full w-full absolute">
                         <div className="cursor-pointer flex-[0_0_75%] text-white bg-[url(../public/assets/planning1.png)] bg-cover bg-center rounded-3xl h-full flex flex-col justify-end p-[40px] select-none">
                             <h3 className="text-4xl font-bold">Kundenorientiert</h3>

@@ -40,6 +40,7 @@ const childVariants = {
 }
 
 export default function PartnersSection() {
+
     return (
         <section className="flex w-full justify-center py-24 items-start font-lora">
             <div className="max-w-large-width px-20 w-full flex flex-col justify-center items-start">
