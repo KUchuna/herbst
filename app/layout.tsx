@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/header/Header";
 import ScrollTracker from "@/components/ScrollTracker";
 import { ReactNode } from "react";
+import Footer from "@/components/Footer";
 
 
 export const metadata = {
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: LayoutProps) {
           <ScrollTracker />
           <Header />
             {children}
+          <Footer />
         </ThemeProvider>
         </body>
     </html>

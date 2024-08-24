@@ -106,3 +106,7 @@ a {
 #landing-button-4 {
     background: linear-gradient(85.74deg, #000953 -10.87%, #C4D5F9 107.63%) border-box;
 }
+
+#dot {
+    filter: invert(42%) sepia(24%) saturate(1875%) hue-rotate(105deg) brightness(94%) contrast(92%);
+}

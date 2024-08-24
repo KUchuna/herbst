@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion";
 
-export default function HeaderButton() {
+export default function HeaderButton({styles}: {styles: string}) {
     return (
         <motion.a 
         whileTap={{scale: 0.9}}
-        className='bg-primary-light text-white ml-[172px] py-[12px] px-[16px] rounded-xl' href='/contact'>
+        className={styles} href='/contact'>
             Kontakt
         </motion.a>
     )
