@@ -5,7 +5,7 @@ import partner2 from "@/public/assets/partner2.svg"
 import partner3 from "@/public/assets/partner3.svg"
 import partner4 from "@/public/assets/partner4.svg"
 import partner5 from "@/public/assets/partner5.svg"
-import { delay, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import Image from "next/image"
 
 const partners = [
