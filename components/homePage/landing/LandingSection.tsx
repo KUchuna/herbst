@@ -8,20 +8,20 @@ import landing4 from "@/public/assets/landing4.png"
 export default function LandingSection() {
 
     return (
-        <section className="flex w-full justify-center pt-11 p-large-x font-lato">
+        <section className="flex w-full justify-center pt-11 px-20 font-lato">
             <div className="max-w-large-width w-full flex flex-col justify-center items-center landing-bg pt-[115px]">
                 <ul className="flex gap-[16px] mb-[100px]">
                     <li className="flex justify-center items-center rounded-[8px] landing-button" id="landing-button-1">
-                        <a className="bg-white hover:bg-transparent hover:text-white transition-colors duration-200 py-[12px] px-[16px] w-full h-full rounded-[8px]">Heizungs</a>
+                        <a className="bg-white cursor-default py-[12px] px-[16px] w-full h-full rounded-[8px]">Heizungs</a>
                     </li>
                     <li className="flex justify-center items-center rounded-[8px] landing-button" id="landing-button-2">
-                        <a className="bg-white hover:bg-transparent hover:text-white transition-colors duration-200 py-[12px] px-[16px] w-full h-full rounded-[8px]">Lüftungs</a>
+                        <a className="bg-white cursor-default py-[12px] px-[16px] w-full h-full rounded-[8px]">Lüftungs</a>
                     </li>
                     <li className="flex justify-center items-center rounded-[8px] landing-button" id="landing-button-3">
-                        <a className="bg-white hover:bg-transparent hover:text-white transition-colors duration-200 py-[12px] px-[16px] w-full h-full rounded-[8px]">Kälte</a>
+                        <a className="bg-white cursor-default py-[12px] px-[16px] w-full h-full rounded-[8px]">Kälte</a>
                     </li>
                     <li className="flex justify-center items-center rounded-[8px] landing-button" id="landing-button-4">
-                        <a className="bg-white hover:bg-transparent hover:text-white transition-colors duration-200 py-[12px] px-[16px] w-full h-full rounded-[8px]">Sanitäranlagen</a>
+                        <a className="bg-white cursor-default py-[12px] px-[16px] w-full h-full rounded-[8px]">Sanitäranlagen</a>
                     </li>
                 </ul>
                 <section className="flex w-full justify-between gap-[52px] items-end">

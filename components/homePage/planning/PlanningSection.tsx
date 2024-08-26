@@ -19,12 +19,12 @@ export default function PlanningSection() {
 
 
     return (
-        <section className="flex w-full justify-center py-24 items-start font-lora">
+        <section className="flex w-full justify-center py-24 px-20 2xl:px-0 items-start font-lora">
             <div className="max-w-large-width w-full flex flex-col justify-center items-start">
-                <h1 className="text-5xl font-bold max-w-[50%] mb-12 pl-20">
+                <h1 className="text-5xl font-bold max-w-[50%] mb-12">
                     HLKS-Planungsburo im schonen Fricktal
                 </h1>
-                <div className="w-full h-[60vh] 2xl:h-[70vh] relative overflow-x-hidden font-lato" ref={emblaRef}>
+                <div className="w-full h-[60vh] relative overflow-x-hidden font-lato md:[mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]" ref={emblaRef}>
                     <div className="flex gap-5 h-full w-full absolute">
                         <div className="cursor-pointer flex-[0_0_75%] text-white bg-[url(../public/assets/planning1.png)] bg-cover bg-center rounded-3xl h-full flex flex-col justify-end p-[40px] select-none">
                             <h3 className="text-4xl font-bold">Kundenorientiert</h3>
@@ -40,7 +40,7 @@ export default function PlanningSection() {
                         </div>
                     </div>
                 </div>
-                <div className="flex gap-3 mt-8 pl-20">
+                <div className="flex gap-3 mt-8">
                     <motion.button 
                         className="bg-primary-light rounded-full p-[12px]" 
                         onClick={scrollPrev}

@@ -8,13 +8,19 @@ interface LandingCardProps {
     text: string;
 }
 
-export default function LandingCard({img, text}: LandingCardProps) {
+export default function LandingCard({ img, text }: LandingCardProps) {
     return (
-        <motion.div
-            whileHover={{scale: 1.1}}
-            className="flex flex-col items-center gap-[12px] cursor-pointer">
-            <Image src={img} alt=""/>
+        <div className="flex flex-col items-center gap-3 cursor-pointer">
+            <div className="overflow-hidden w-full h-full rounded-3xl">
+                <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    transition={{type: "tween", duration: 0.2}}
+                    className="w-full h-full"
+                >
+                    <Image src={img} alt="" />
+                </motion.div>
+            </div>
             <p>{text}</p>
-        </motion.div>
+        </div>
     )
 }

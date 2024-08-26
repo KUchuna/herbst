@@ -42,15 +42,15 @@ const childVariants = {
 export default function PartnersSection() {
 
     return (
-        <section className="flex w-full justify-center py-24 items-start font-lora">
-            <div className="max-w-large-width px-20 w-full flex flex-col justify-center items-start">
+        <section className="flex w-full justify-center py-24 items-start font-lora px-20">
+            <div className="max-w-large-width w-full flex flex-col justify-center items-start">
                 <h1 className="text-5xl font-bold">Mitgliedschaften</h1>
                 <motion.div
                     className="pt-12 flex justify-between w-full"
                     variants={parentVariants}
                     initial="initial"
                     whileInView="animate"
-                    viewport={{once: false}}
+                    viewport={{once: true}}
                 >
                     {partners.map((partner, index) => (
                         <motion.div 

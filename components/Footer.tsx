@@ -9,7 +9,7 @@ import instagram from "@/public/assets/instagram.svg"
 
 export default function Footer() {
     return (
-        <footer className="p-20 font-lato border-t border-t-[#C9C9C9]">
+        <footer className="p-20 font-lato border-t border-t-[#C9C9C9] justify-center flex">
             <div className="max-w-large-width w-full flex flex-col justify-center items-start">
                 <div className="flex justify-between w-full pb-16 border-b-[#C9C9C9] border-b">
                     <div>

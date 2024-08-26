@@ -70,7 +70,7 @@ export default function ProjectsSlider() {
     return (
         <div className="w-full">
             <div className="w-full h-[19rem] relative overflow-x-hidden font-lato" ref={emblaRef}>
-                <div className="flex gap-[20px] h-full w-full absolute pl-20">
+                <div className="flex gap-5 h-full w-full absolute">
                     {projects.map((card) => (
                         <ProjectCard
                             key={card.address}
@@ -81,7 +81,7 @@ export default function ProjectsSlider() {
                     ))}
                 </div>
             </div>
-            <div className="flex gap-3 mt-8 pl-20">
+            <div className="flex gap-3 mt-8">
                 <motion.button 
                     className={`rounded-full select-none p-[12px] ${prevBtnDisabled ? "bg-[#efb797] pointer-events-none" : "bg-primary-light"}`} 
                     onClick={scrollPrev}
