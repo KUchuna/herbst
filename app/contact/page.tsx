@@ -1,7 +1,18 @@
+import ContactAddress from "@/components/contactPage/contactAddress/ContactAddress";
+import ContactSection from "@/components/contactPage/contactForm/ContactSection";
+import dynamic from 'next/dynamic';
+
+
+const MapSection = dynamic(() => import('@/components/contactPage/map/MapSection'), {
+    ssr: false,
+});
+
 export default function Contact() {
     return (
-        <div className="text-9xl flex justify-center items-center">
-            contact us
-        </div>
+        <main>
+            <ContactSection />
+            <ContactAddress />
+            <MapSection />
+        </main>
     )
 }

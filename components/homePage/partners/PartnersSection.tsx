@@ -20,7 +20,7 @@ const parentVariants = {
     initial: {},
     animate: {
         transition: {
-            delayChildren: 1,
+            delayChildren: 0.6,
             staggerChildren: 0.3
         }
     }

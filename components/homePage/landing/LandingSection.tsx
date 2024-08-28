@@ -9,7 +9,7 @@ export default function LandingSection() {
 
     return (
         <section className="flex w-full justify-center pt-11 px-20 font-lato">
-            <div className="max-w-large-width w-full flex flex-col justify-center items-center landing-bg pt-[115px]">
+            <div className="max-w-large-width w-full flex flex-col justify-center items-center landing-bg pt-28">
                 <ul className="flex gap-[16px] mb-[100px]">
                     <li className="flex justify-center items-center rounded-[8px] landing-button" id="landing-button-1">
                         <a className="bg-white cursor-default py-[12px] px-[16px] w-full h-full rounded-[8px]">Heizungs</a>
