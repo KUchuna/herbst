@@ -11,7 +11,7 @@ export default function ContactAddress() {
                 <div>
                     <h3 className="border-l-[2px] border-[#DA4741] pl-[12px] font-bold text-3xl">Besuchen Sie uns</h3>
                     <address className="pt-2 pl-3 not-italic text-primary-light text-xl font-lato">
-                    Widengasse 69 <br />999 Frick<br />Schweiz
+                    Tbilisi 69 <br />999 Saburtalo<br />Pekini
                     </address>
                 </div>
                 <div>
