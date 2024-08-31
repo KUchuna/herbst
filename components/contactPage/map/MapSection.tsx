@@ -12,7 +12,7 @@ export default function MapSection() {
     return (
         <section className="flex w-full justify-center px-20 pb-16 items-start font-lora">
             <div className="max-w-large-width w-full flex flex-col justify-center items-center">
-                <MapContainer center={position} zoom={13} scrollWheelZoom={false} className="h-[600px] w-full rounded-[32px] z-10">
+                <MapContainer center={position} zoom={13} scrollWheelZoom={false} className="h-[50vh] w-full rounded-[32px] z-10">
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />

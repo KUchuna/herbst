@@ -1,13 +1,14 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { z } from "zod"
 import { isValidPhoneNumber, parsePhoneNumber } from "libphonenumber-js";
-import {motion} from "framer-motion"
+import {AnimatePresence, motion} from "framer-motion"
+import PhonePrefix from "./PhonePrefix";
 
 function phone(schema: z.ZodString) {
     return schema
-        .refine(isValidPhoneNumber, "Invalid phone number (include the international prefix).")
+        .refine(isValidPhoneNumber, "Invalid phone number (select correct country prefix)")
         .transform((value) => parsePhoneNumber(value).number.toString());
 }
 
@@ -27,7 +28,13 @@ export default function ContactForm() {
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
     const [message, setMessage] = useState("")
-    const [errors, setErrors] = useState<{ [key: string]: string }>({})
+    const [errors, setErrors] = useState<{[key: string]: string }>({})
+
+    const [active, setActive] = useState<boolean>(false)
+    const [selection, setSelection] = useState("+995")
+    const prefixRef = useRef(null)
+
+
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -35,7 +42,7 @@ export default function ContactForm() {
         const formData = {
             name,
             email,
-            phone,
+            phone: `${selection}${phone}`,
             message,
         }
 
@@ -59,6 +66,39 @@ export default function ContactForm() {
         }
     }
     
+    function handleClick() {
+        setActive(!active)
+    }
+
+    useEffect(() => {
+        const handleMenuClose = (e: any) => {
+            if(e.target != prefixRef.current && e.target != document.getElementById('profile-image')) {
+                setActive(false)
+            }
+        }
+
+        document.addEventListener('click', handleMenuClose)
+        return () => {
+            document.removeEventListener('click', handleMenuClose)
+        }
+    }, [])
+
+    function handleSelection(selection: string) {
+        setSelection(selection)
+    }
+
+    function handlePhoneChange(e: React.ChangeEvent<HTMLInputElement>) {
+        const value = e.target.value;
+        const isValid = /^[\d\s]*$/.test(value);
+    
+        if (isValid) {
+            setPhone(value);
+        } else {
+            console.log("Invalid input");
+        }
+    }
+    
+
     return (
         <div className="font-lato flex-[0_0_40%]">
             <h2 className="font-bold font-lora text-3xl">Kontakt</h2>
@@ -89,15 +129,26 @@ export default function ContactForm() {
                 {errors.email && <span className="text-red-500 text-sm mb-2 -mt-5">{errors.email}</span>}
                 
                 <label htmlFor="phone" className="font-bold text-sm mb-1.5">Handynummer</label>
-                <input 
-                    type="tel" 
-                    name="phone" 
-                    id="phone" 
-                    placeholder="+41 (555) 000-0000" 
-                    value={phone} 
-                    onChange={(e) => setPhone(e.target.value)}
-                    className={`outline-none border-[1px] rounded-lg py-3 px-2 mb-6 ${errors.phone ? 'border-red-500' : 'border-[#C9C9C9]'}`} 
-                />
+                <div className={`relative w-full flex gap-3 items-center border-[1px] py-3 px-2 rounded-lg mb-6  ${errors.phone ? 'border-red-500' : 'border-[#C9C9C9]'}`}>
+                    <div onClick={handleClick} className="cursor-pointer select-none min-w-fit px-2 rounded-lg bg-primary-light text-white font-bold" ref={prefixRef}>
+                       {selection}
+                    </div>
+                    <AnimatePresence>
+                    {active && 
+                    <PhonePrefix 
+                        handleSelection={handleSelection}
+                    />}
+                    </AnimatePresence>
+                    <input 
+                        type="tel" 
+                        name="phone" 
+                        id="phone" 
+                        placeholder="(555) 000-0000" 
+                        value={phone} 
+                        onChange={handlePhoneChange}
+                        className="w-full outline-none" 
+                    />
+                </div>
                 {errors.phone && <span className="text-red-500 text-sm mb-2 -mt-5">{errors.phone}</span>}
                 
                 <label htmlFor="message" className="font-bold text-sm mb-1.5">Anfrage</label>

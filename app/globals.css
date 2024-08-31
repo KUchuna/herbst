@@ -110,3 +110,30 @@ a {
 #dot {
     filter: invert(42%) sepia(24%) saturate(1875%) hue-rotate(105deg) brightness(94%) contrast(92%);
 }
+
+#phone-prefix {
+    --sb-track-color: #ededed;
+    --sb-thumb-color: #dd5502;
+    --sb-size: 7px;
+}
+
+#phone-prefix::-webkit-scrollbar {
+width: var(--sb-size);
+}
+
+#phone-prefix::-webkit-scrollbar-track {
+background: var(--sb-track-color);
+border-radius: 50px;
+}
+
+#phone-prefix::-webkit-scrollbar-thumb {
+background: var(--sb-thumb-color);
+border-radius: 50px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+#phone-prefix {
+    scrollbar-color: var(--sb-thumb-color)
+                    var(--sb-track-color);
+}
+}
