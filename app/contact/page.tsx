@@ -1,5 +1,5 @@
-import ContactAddress from "@/components/contactPage/contactAddress/ContactAddress";
-import ContactSection from "@/components/contactPage/contactForm/ContactSection";
+import AddressSection from "@/components/contactPage/address/AddressSection";
+import FormSection from "@/components/contactPage/form/FormSection";
 import dynamic from 'next/dynamic';
 
 
@@ -10,8 +10,8 @@ const MapSection = dynamic(() => import('@/components/contactPage/map/MapSection
 export default function Contact() {
     return (
         <main>
-            <ContactSection />
-            <ContactAddress />
+            <FormSection />
+            <AddressSection />
             <MapSection />
         </main>
     )

@@ -1,4 +1,4 @@
-export default function ContactAddress() {
+export default function AddressSection() {
     return (
         <section className="flex w-full justify-center py-[96px] p-large-x font-lora">
             <div className="max-w-large-width w-full flex justify-between gap-2 items-start mt-[100px]">

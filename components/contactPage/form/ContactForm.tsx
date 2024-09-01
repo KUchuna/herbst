@@ -101,7 +101,7 @@ export default function ContactForm() {
 
     return (
         <div className="font-lato flex-[0_0_40%]">
-            <h2 className="font-bold font-lora text-3xl">Kontakt</h2>
+            <h1 className="font-bold font-lora text-3xl">Kontakt</h1>
             <p>Unser Team freuen sich über Ihre Kontaktaufnahme.</p>
             <form className="flex flex-col mt-12" onSubmit={handleSubmit} noValidate>
                 <label htmlFor="name" className="font-bold text-sm mb-1.5">Name und Vorname</label>

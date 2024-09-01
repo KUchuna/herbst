@@ -49,7 +49,7 @@ export default function PhonePrefix({handleSelection}: PhonePrefixProps) {
                 <motion.li 
                     key={index}
                     variants={item} 
-                    className="px-3 py-2 hover:bg-secondary-light cursor-pointer"
+                    className="px-3 py-2 hover:bg-secondary-light cursor-pointer text-sm"
                     onClick={() => handleSelection(prefix.code)}
                 >
                 {prefix.shortName+": "+prefix.code}

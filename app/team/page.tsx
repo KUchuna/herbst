@@ -1,7 +1,11 @@
+import PetsSection from "@/components/teamPage/PetsSection";
+import TeamSection from "@/components/teamPage/TeamSection";
+
 export default function Team() {
     return (
         <main>
-            hello
+            <TeamSection />
+            <PetsSection />
         </main>
     )
 }

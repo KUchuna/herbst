@@ -7,10 +7,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundColor: {
-        "primary-light": "#DD5502",
-        "secondary-light": "#EDEDED",
-      },
       colors: {
         "primary-light": "#DD5502",
         "secondary-light": "#EDEDED",
