@@ -45,11 +45,12 @@ export default function PhonePrefix({handleSelection, searchRef}: PhonePrefixPro
 
 
     function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
-
-        setSearch(e.target.value)
+        const inputValue = e.target.value;
+        
+        setSearch(inputValue)
 
         const filteredPrefixes = prefixes.countries.filter((prefix) =>
-            prefix.name.toLowerCase().includes(search.toLowerCase())
+            prefix.name.toLowerCase().includes(inputValue.toLowerCase())
         )
         setSearchedValues(filteredPrefixes)
     }
