@@ -2,32 +2,138 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+    font-family: 'Lato';
+    src: url('../public/fonts/Lato-Black.woff') format('woff2'),
+        url('../public/fonts/Lato-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+    font-family: 'Lato';
+    src: url('../public/fonts/Lato-Bold.woff') format('woff2'),
+        url('../public/fonts/Lato-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@font-face {
+    font-family: 'Lato';
+    src: url('../public/fonts/Lato-Light.woff2') format('woff2'),
+        url('../public/fonts/Lato-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+@font-face {
+    font-family: 'Lato';
+    src: url('../public/fonts/Lato-Regular.woff2') format('woff2'),
+        url('../public/fonts/Lato-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url('../public/fonts/Lora-Medium.woff2') format('woff2'),
+        url('../public/fonts/Lora-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url('../public/fonts/Lora-Regular.woff2') format('woff2'),
+        url('../public/fonts/Lora-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url('../public/fonts/Lora-Bold.woff2') format('woff2'),
+        url('../public/fonts/Lora-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url('../public/fonts/Lora-SemiBold.woff2') format('woff2'),
+        url('../public/fonts/Lora-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+a {
+    cursor: pointer;
+}
+
+.landing-bg {
+    background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,1) 80%), 
+                url("../public/assets/grid.png");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100% 80%;
+}
+
+.landing-button {
+    border: 1px solid transparent;
+    border-radius: 8px;
+}
+
+#landing-button-1 {
+    background: linear-gradient(-257.11deg, #B72706 -18.74%, #FFE6C6 130.29%) border-box;
+}
+
+#landing-button-2 {
+    background: linear-gradient(90deg, rgba(255, 138, 32, 0.71) -119.91%, rgba(155, 185, 245, 0.71) 147.69%) border-box;
+}
+
+#landing-button-3 {
+    background: linear-gradient(85.66deg, #C4D5F9 -2.81%, #2936A4 107.65%) border-box;
+}
+
+#landing-button-4 {
+    background: linear-gradient(85.74deg, #000953 -10.87%, #C4D5F9 107.63%) border-box;
+}
+
+#dot {
+    filter: invert(42%) sepia(24%) saturate(1875%) hue-rotate(105deg) brightness(94%) contrast(92%);
+}
+
+#phone-prefix {
+    --sb-track-color: #ededed;
+    --sb-thumb-color: #dd5502;
+    --sb-size: 0px;
+}
+
+#phone-prefix::-webkit-scrollbar {
+width: var(--sb-size);
+}
+
+#phone-prefix::-webkit-scrollbar-track {
+background: var(--sb-track-color);
+border-radius: 50px;
+}
+
+#phone-prefix::-webkit-scrollbar-thumb {
+background: var(--sb-thumb-color);
+border-radius: 50px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+#phone-prefix {
+    scrollbar-color: var(--sb-thumb-color)
+                    var(--sb-track-color);
+}
 }
