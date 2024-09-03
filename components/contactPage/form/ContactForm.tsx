@@ -32,8 +32,9 @@ export default function ContactForm() {
 
     const [active, setActive] = useState<boolean>(false)
     const [selection, setSelection] = useState("+995")
+    
     const prefixRef = useRef(null)
-
+    const searchRef = useRef(null)
 
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -66,13 +67,13 @@ export default function ContactForm() {
         }
     }
     
-    function handleClick() {
+    function handleActive() {
         setActive(!active)
     }
 
     useEffect(() => {
         const handleMenuClose = (e: any) => {
-            if(e.target != prefixRef.current && e.target != document.getElementById('profile-image')) {
+            if(e.target != prefixRef.current && e.target != searchRef.current) {
                 setActive(false)
             }
         }
@@ -129,14 +130,15 @@ export default function ContactForm() {
                 {errors.email && <span className="text-red-500 text-sm mb-2 -mt-5">{errors.email}</span>}
                 
                 <label htmlFor="phone" className="font-bold text-sm mb-1.5">Handynummer</label>
-                <div className={`relative w-full flex gap-3 items-center border-[1px] py-3 px-2 rounded-lg mb-6  ${errors.phone ? 'border-red-500' : 'border-[#C9C9C9]'}`}>
-                    <div onClick={handleClick} className="cursor-pointer select-none min-w-fit px-2 rounded-lg bg-primary-light text-white font-bold" ref={prefixRef}>
+                <div className={`relative w-full flex gap-3 items-center border-[1px] rounded-lg mb-6  ${errors.phone ? 'border-red-500' : 'border-[#C9C9C9]'}`}>
+                    <div onClick={handleActive} className="cursor-pointer select-none rounded-lg bg-primary-light text-white font-bold hover:bg-[#c74d02] w-[20%] px-2 flex justify-center items-center py-3 min-w-fit" ref={prefixRef}>
                        {selection}
                     </div>
                     <AnimatePresence>
                     {active && 
                     <PhonePrefix 
                         handleSelection={handleSelection}
+                        searchRef={searchRef}
                     />}
                     </AnimatePresence>
                     <input 
@@ -146,7 +148,7 @@ export default function ContactForm() {
                         placeholder="(555) 000-0000" 
                         value={phone} 
                         onChange={handlePhoneChange}
-                        className="w-full outline-none" 
+                        className="w-full outline-none py-3 px-2 rounded-lg" 
                     />
                 </div>
                 {errors.phone && <span className="text-red-500 text-sm mb-2 -mt-5">{errors.phone}</span>}

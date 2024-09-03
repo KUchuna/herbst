@@ -114,7 +114,7 @@ a {
 #phone-prefix {
     --sb-track-color: #ededed;
     --sb-thumb-color: #dd5502;
-    --sb-size: 7px;
+    --sb-size: 0px;
 }
 
 #phone-prefix::-webkit-scrollbar {
