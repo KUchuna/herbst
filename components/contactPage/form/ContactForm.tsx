@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { z } from "zod"
 import { isValidPhoneNumber, parsePhoneNumber } from "libphonenumber-js";
-import {AnimatePresence, motion} from "framer-motion"
+import {motion} from "framer-motion"
 import PhonePrefix from "./PhonePrefix";
 
 function phone(schema: z.ZodString) {
@@ -33,8 +33,8 @@ export default function ContactForm() {
     const [active, setActive] = useState<boolean>(false)
     const [selection, setSelection] = useState("+995")
     
-    const prefixRef = useRef(null)
-    const searchRef = useRef(null)
+    const prefixRef = useRef<HTMLDivElement>(null)
+    const contRef = useRef<HTMLUListElement>(null)
 
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -73,7 +73,10 @@ export default function ContactForm() {
 
     useEffect(() => {
         const handleMenuClose = (e: any) => {
-            if(e.target != prefixRef.current && e.target != searchRef.current) {
+            if(contRef.current && 
+                !contRef.current.contains(e.target) &&
+                prefixRef.current && 
+                !prefixRef.current.contains(e.target)) {
                 setActive(false)
             }
         }
@@ -82,10 +85,11 @@ export default function ContactForm() {
         return () => {
             document.removeEventListener('click', handleMenuClose)
         }
-    }, [])
+    }, [active])
 
     function handleSelection(selection: string) {
         setSelection(selection)
+        setActive(false)
     }
 
     function handlePhoneChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -134,13 +138,11 @@ export default function ContactForm() {
                     <div onClick={handleActive} className="cursor-pointer select-none rounded-lg bg-primary-light text-white font-bold hover:bg-[#c74d02] w-[20%] px-2 flex justify-center items-center py-3 min-w-fit" ref={prefixRef}>
                        {selection}
                     </div>
-                    <AnimatePresence>
                     {active && 
                     <PhonePrefix 
                         handleSelection={handleSelection}
-                        searchRef={searchRef}
+                        contRef={contRef}
                     />}
-                    </AnimatePresence>
                     <input 
                         type="tel" 
                         name="phone" 

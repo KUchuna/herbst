@@ -1,6 +1,6 @@
 import {motion } from "framer-motion"
 import { prefixes } from "@/lib/datas/prefixes"
-import { useState } from "react";
+import { RefObject, useState } from "react";
 import Image from "next/image";
 import searchIco from "@/public/assets/search.svg"
 
@@ -14,31 +14,21 @@ const container = {
         duration: 0.1,
         delayChildren: 0.1,
         },
-    },
-    exit: {
-        height: 0,
-        transition: {
-            duration: 0.1,
-            delay: 0.1
-        },
     }
 }
 
   const item = {
     hidden: { opacity: 0},
-    visible: { opacity: 1 },
-    exit: {opacity: 0, transition: {
-        duration: 0.1
-    }}
+    visible: { opacity: 1 }
 }
 
 interface PhonePrefixProps {
     handleSelection: (code: string) => void;
-    searchRef: React.MutableRefObject<null>
+    contRef: RefObject<HTMLUListElement>
 }
 
 
-export default function PhonePrefix({handleSelection, searchRef}: PhonePrefixProps) {
+export default function PhonePrefix({handleSelection, contRef}: PhonePrefixProps) {
 
     const [search, setSearch] = useState("")
     const [searchedValues, setSearchedValues] = useState(prefixes.countries)
@@ -63,11 +53,12 @@ export default function PhonePrefix({handleSelection, searchRef}: PhonePrefixPro
             initial="hidden"
             exit="exit"
             animate="visible"
+            ref={contRef} 
         >
             <div className="sticky top-0 py-2 bg-white w-full px-2 flex">
                 <div className="flex items-center border-[1px] border-[#C9C9C9] rounded-lg w-full px-2">
                     <Image src={searchIco} alt=""/>
-                    <input type="text" ref={searchRef} className="outline-none rounded-lg py-1 px-2" onChange={handleSearch} value={search}/>
+                    <input type="text" className="outline-none rounded-lg py-1 px-2" onChange={handleSearch} value={search}/>
                 </div>
             </div>
             {searchedValues.map((prefix, index) => (
@@ -76,6 +67,7 @@ export default function PhonePrefix({handleSelection, searchRef}: PhonePrefixPro
                     variants={item} 
                     className="py-2 hover:bg-secondary-light cursor-pointer text-sm px-3"
                     onClick={() => handleSelection(prefix.code)}
+
                 >
                 {prefix.code +" " + prefix.name}
                 </motion.li>
