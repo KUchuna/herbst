@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function Header() {
     return (
         <header
-            className="flex justify-center pt-3 font-lato sticky top-0 z-50">
+            className="flex justify-center py-2 font-lato sticky top-0 z-50" id='header'>
             <div className='flex items-center bg-secondary-light rounded-[20px] py-[12px] px-[16px]'>
                 <Link href="/"><Image src={headerlogo} alt='herbst' /></Link>
                 <ul className="flex items-center gap-[24px] ml-[24px]">
