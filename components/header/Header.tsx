@@ -12,7 +12,7 @@ export default function Header() {
                 <Link href="/"><Image src={headerlogo} alt='herbst' /></Link>
                 <ul className="flex items-center gap-[24px] ml-[24px]">
                     <li className="cursor-pointer text-lg"><Link href="/about">Über uns</Link></li>
-                    <li className='cursor-pointer text-lg'>Referenzprojekte</li>
+                    <li className='cursor-pointer text-lg'><Link href="/projects">Referenzprojekte</Link></li>
                     <li className='cursor-pointer text-lg'>Leistungen</li>
                     <li className='cursor-pointer text-lg'><Link href="/team">Team</Link></li>
                     <li className='cursor-pointer'><ThemeChanger /></li>
