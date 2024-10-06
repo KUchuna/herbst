@@ -4,7 +4,6 @@ import landing2 from "@/public/assets/landing2.png"
 import landing3 from "@/public/assets/landing3.png"
 import landing4 from "@/public/assets/landing4.png"
 
-
 export default function LandingSection() {
 
     return (
