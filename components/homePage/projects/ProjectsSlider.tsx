@@ -3,43 +3,12 @@
 import useEmblaCarousel from "embla-carousel-react"
 import { EmblaCarouselType } from "embla-carousel"
 import ProjectCard from "./ProjectCard.tsx"
-import project1 from "@/public/assets/projects1.png"
-import project2 from "@/public/assets/projects2.png"
-import project3 from "@/public/assets/projects3.png"
-import project4 from "@/public/assets/projects4.png"
-import project5 from "@/public/assets/projects5.png"
+import projects from "@/lib/datas/projects.js"
 import { useCallback, useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import arrowr from "@/public/assets/arrowr.svg"
 import Image from "next/image"
 
-const projects = [
-    {
-        buildingDone: true,
-        address: "Fallstudie 1, Zürich",
-        img: project1
-    },
-    {
-        buildingDone: false,
-        address: "Fallstudie 2, Zürich",
-        img: project2,
-    },
-    {
-        buildingDone: false,
-        address: "Fallstudie 3, Zürich",
-        img: project3,
-    },
-    {
-        buildingDone: true,
-        address: "Fallstudie 4, Zürich",
-        img: project4,
-    },
-    {
-        buildingDone: false,
-        address: "Fallstudie 5, Zürich",
-        img: project5,
-    },
-]
 
 export default function ProjectsSlider() {
     const [prevBtnDisabled, setPrevBtnDisabled] = useState(true)
@@ -71,12 +40,13 @@ export default function ProjectsSlider() {
         <div className="w-full">
             <div className="w-full h-[19rem] relative overflow-x-hidden font-lato" ref={emblaRef}>
                 <div className="flex gap-5 h-full w-full absolute">
-                    {projects.map((card) => (
+                    {projects.slice(0,5).map((card) => (
                         <ProjectCard
-                            key={card.address}
-                            img={card.img}
-                            address={card.address}
-                            buildingDone={card.buildingDone}
+                            key={card.id}
+                            id={card.id}
+                            img={card.images[0]}
+                            title={card.title}
+                            type={card.type}
                         />
                     ))}
                 </div>

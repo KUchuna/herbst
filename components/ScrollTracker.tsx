@@ -13,7 +13,7 @@ export default function ScrollTracker() {
 
     return (
         <motion.div
-            className="bg-primary-light h-2 z-30 fixed top-0 left-0 right-0"
+            className="bg-primary-light h-2 z-[100] fixed top-0 left-0 right-0"
             style={{ scaleX }}
       />
     )

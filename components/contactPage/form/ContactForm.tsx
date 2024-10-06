@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { z } from "zod"
 import { isValidPhoneNumber, parsePhoneNumber } from "libphonenumber-js";
-import {AnimatePresence, motion} from "framer-motion"
+import {motion} from "framer-motion"
 import PhonePrefix from "./PhonePrefix";
 
 function phone(schema: z.ZodString) {
@@ -33,8 +33,8 @@ export default function ContactForm() {
     const [active, setActive] = useState<boolean>(false)
     const [selection, setSelection] = useState("+995")
     
-    const prefixRef = useRef(null)
-    const searchRef = useRef(null)
+    const prefixRef = useRef<HTMLDivElement>(null)
+    const contRef = useRef<HTMLUListElement>(null)
 
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -73,19 +73,23 @@ export default function ContactForm() {
 
     useEffect(() => {
         const handleMenuClose = (e: any) => {
-            if(e.target != prefixRef.current && e.target != searchRef.current) {
+            if(contRef.current && 
+                !contRef.current.contains(e.target) &&
+                prefixRef.current && 
+                !prefixRef.current.contains(e.target)) {
                 setActive(false)
             }
         }
 
-        document.addEventListener('click', handleMenuClose)
+        document.addEventListener('mousedown', handleMenuClose)
         return () => {
-            document.removeEventListener('click', handleMenuClose)
+            document.removeEventListener('mousedown', handleMenuClose)
         }
-    }, [])
+    }, [active])
 
     function handleSelection(selection: string) {
         setSelection(selection)
+        setActive(false)
     }
 
     function handlePhoneChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -101,69 +105,73 @@ export default function ContactForm() {
     
 
     return (
-        <div className="font-lato flex-[0_0_40%]">
-            <h1 className="font-bold font-lora text-3xl">Kontakt</h1>
-            <p>Unser Team freuen sich über Ihre Kontaktaufnahme.</p>
-            <form className="flex flex-col mt-12" onSubmit={handleSubmit} noValidate>
-                <label htmlFor="name" className="font-bold text-sm mb-1.5">Name und Vorname</label>
-                <input 
-                    type="text" 
-                    name="name" 
-                    id="name" 
-                    placeholder="John Doe" 
-                    value={name} 
-                    onChange={(e) => setName(e.target.value)}
-                    className={`outline-none border-[1px] rounded-lg py-3 px-2 mb-6 ${errors.name ? 'border-red-500' : 'border-[#C9C9C9]'}`} 
-                />
-                {errors.name && <span className="text-red-500 text-sm mb-2 -mt-5">{errors.name}</span>}
-                
-                <label htmlFor="email" className="font-bold text-sm mb-1.5">Email</label>
-                <input 
-                    type="email" 
-                    name="email" 
-                    id="email" 
-                    placeholder="johndoe@example.com" 
-                    value={email} 
-                    onChange={(e) => setEmail(e.target.value)}
-                    className={`outline-none border-[1px] rounded-lg py-3 px-2 mb-6 ${errors.email ? 'border-red-500' : 'border-[#C9C9C9]'}`} 
-                />
-                {errors.email && <span className="text-red-500 text-sm mb-2 -mt-5">{errors.email}</span>}
-                
-                <label htmlFor="phone" className="font-bold text-sm mb-1.5">Handynummer</label>
-                <div className={`relative w-full flex gap-3 items-center border-[1px] rounded-lg mb-6  ${errors.phone ? 'border-red-500' : 'border-[#C9C9C9]'}`}>
-                    <div onClick={handleActive} className="cursor-pointer select-none rounded-lg bg-primary-light text-white font-bold hover:bg-[#c74d02] w-[20%] px-2 flex justify-center items-center py-3 min-w-fit" ref={prefixRef}>
-                       {selection}
-                    </div>
-                    <AnimatePresence>
-                    {active && 
-                    <PhonePrefix 
-                        handleSelection={handleSelection}
-                        searchRef={searchRef}
-                    />}
-                    </AnimatePresence>
+        <div className="font-lato w-[40%] h-full">
+            <div>
+                <h1 className="font-bold font-lora text-3xl">Kontakt</h1>
+                <p>Unser Team freuen sich über Ihre Kontaktaufnahme.</p>
+            </div>
+            <form className="flex flex-col mt-12 justify-between" onSubmit={handleSubmit} noValidate>
+                <div className="flex flex-col">
+                    <label htmlFor="name" className="font-bold text-sm mb-1.5">Name und Vorname</label>
                     <input 
-                        type="tel" 
-                        name="phone" 
-                        id="phone" 
-                        placeholder="(555) 000-0000" 
-                        value={phone} 
-                        onChange={handlePhoneChange}
-                        className="w-full outline-none py-3 px-2 rounded-lg" 
+                        type="text" 
+                        name="name" 
+                        id="name" 
+                        placeholder="John Doe" 
+                        value={name} 
+                        onChange={(e) => setName(e.target.value)}
+                        className={`outline-none border-[1px] rounded-lg py-3 px-2 mb-6 ${errors.name ? 'border-red-500' : 'border-[#C9C9C9]'}`} 
                     />
+                    {errors.name && <span className="text-red-500 text-sm mb-2 -mt-5">{errors.name}</span>}
                 </div>
-                {errors.phone && <span className="text-red-500 text-sm mb-2 -mt-5">{errors.phone}</span>}
-                
-                <label htmlFor="message" className="font-bold text-sm mb-1.5">Anfrage</label>
-                <textarea 
-                    name="message" 
-                    id="message" 
-                    placeholder="Hinterlassen Sie uns eine Nachricht ..." 
-                    value={message} 
-                    onChange={(e) => setMessage(e.target.value)}
-                    className={`outline-none border-[1px] rounded-lg py-3 px-2 mb-6 min-h-40 resize-none ${errors.message ? 'border-red-500' : 'border-[#C9C9C9]'}`} 
-                />
-                {errors.message && <span className="text-red-500 text-sm mb-2 -mt-5">{errors.message}</span>}
-                
+                <div className="flex flex-col">
+                    <label htmlFor="email" className="font-bold text-sm mb-1.5">Email</label>
+                    <input 
+                        type="email" 
+                        name="email" 
+                        id="email" 
+                        placeholder="johndoe@example.com" 
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)}
+                        className={`outline-none border-[1px] rounded-lg py-3 px-2 mb-6 ${errors.email ? 'border-red-500' : 'border-[#C9C9C9]'}`} 
+                    />
+                    {errors.email && <span className="text-red-500 text-sm mb-2 -mt-5">{errors.email}</span>}
+                </div>
+                <div className="flex flex-col">
+                    <label htmlFor="phone" className="font-bold text-sm mb-1.5">Handynummer</label>
+                    <div className={`relative w-full flex gap-3 items-center border-[1px] rounded-lg mb-6  ${errors.phone ? 'border-red-500' : 'border-[#C9C9C9]'}`}>
+                        <div onClick={handleActive} className="cursor-pointer select-none rounded-lg bg-primary-light text-white font-bold hover:bg-[#c74d02] w-[20%] px-2 flex justify-center items-center py-3 min-w-fit" ref={prefixRef}>
+                        {selection}
+                        </div>
+                        {active && 
+                        <PhonePrefix 
+                            handleSelection={handleSelection}
+                            contRef={contRef}
+                        />}
+                        <input 
+                            type="tel" 
+                            name="phone" 
+                            id="phone" 
+                            placeholder="(555) 000-0000" 
+                            value={phone} 
+                            onChange={handlePhoneChange}
+                            className="w-full outline-none py-3 px-2 rounded-lg" 
+                        />
+                    </div>
+                    {errors.phone && <span className="text-red-500 text-sm mb-2 -mt-5">{errors.phone}</span>}
+                </div>
+                <div className="flex flex-col">
+                    <label htmlFor="message" className="font-bold text-sm mb-1.5">Anfrage</label>
+                    <textarea 
+                        name="message" 
+                        id="message" 
+                        placeholder="Hinterlassen Sie uns eine Nachricht ..." 
+                        value={message} 
+                        onChange={(e) => setMessage(e.target.value)}
+                        className={`outline-none border-[1px] rounded-lg py-3 px-2 mb-6 min-h-40 resize-none ${errors.message ? 'border-red-500' : 'border-[#C9C9C9]'}`} 
+                    />
+                    {errors.message && <span className="text-red-500 text-sm mb-2 -mt-5">{errors.message}</span>}
+                </div>  
                 <motion.button
                 whileTap={{scale: 0.95}}
                 type="submit" 
