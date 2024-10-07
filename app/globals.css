@@ -152,3 +152,10 @@ border-radius: 50px;
     backdrop-filter: blur(11.9px);
     -webkit-backdrop-filter: blur(11.9px);
 }
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 32px;
+    grid-row-gap: 32px;
+}

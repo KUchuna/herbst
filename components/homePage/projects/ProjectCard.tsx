@@ -24,7 +24,7 @@ export default function ProjectCard({img, type, title, projectsPage, id}: Projec
     const projectsPageStyles = 
     {
         div: "relative flex flex-col select-none cursor-pointer",
-        image: "w-[305px] h-[305px] rounded-xl object-cover"
+        image: "h-[305px] rounded-xl object-cover"
     }
 
     const router = useRouter()

@@ -4,7 +4,7 @@ import ProjectCard from "@/components/homePage/projects/ProjectCard"
 export default function ListingsSection() {
     return (
         <section className="flex w-full justify-center items-start font-lato px-20 pb-24 pt-8">
-            <div className="max-w-large-width flex flex-wrap gap-8 w-full justify-start items-start">
+            <div className="max-w-large-width gap-8 w-full projects-container">
                 {
                     projects.map((card) => (
                         <ProjectCard
